@@ -1,0 +1,46 @@
+{
+  "_description": "Configuration for attention visualization",
+  "_source": "Extracted from examples/use_case_2_attention_visualization.py",
+  "_script": "scripts/attention_visualization.py",
+
+  "model": {
+    "name": "50M_multi_species_v2",
+    "alternatives": [
+      "100M_multi_species_v2",
+      "250M_multi_species_v2",
+      "500M_multi_species_v2"
+    ]
+  },
+
+  "attention": {
+    "layer": 1,
+    "head": 4,
+    "max_positions": 32
+  },
+
+  "sequences": {
+    "default": [
+      "ATTCCGAAATCGCTGACCGATCGTACGAAA",
+      "ATTTCTCTCTCTCTCTGAGATCGATCGATCGATATCTCTCGAGCTAGC"
+    ]
+  },
+
+  "visualization": {
+    "colormap": "Blues",
+    "figure_size_per_plot": [6, 5],
+    "dpi": 300,
+    "tight_layout": true,
+    "include_colorbar": true
+  },
+
+  "analysis": {
+    "calculate_statistics": true,
+    "include_diagonal_analysis": true,
+    "show_max_attention_positions": true
+  },
+
+  "output": {
+    "format": "png",
+    "include_stats_in_result": true
+  }
+}

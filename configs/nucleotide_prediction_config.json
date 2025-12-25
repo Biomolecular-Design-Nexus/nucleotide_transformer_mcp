@@ -1,0 +1,55 @@
+{
+  "_description": "Configuration for nucleotide probability prediction",
+  "_source": "Extracted from examples/use_case_3_nucleotide_prediction.py",
+  "_script": "scripts/nucleotide_prediction.py",
+
+  "model": {
+    "name": "50M_multi_species_v2",
+    "alternatives": [
+      "100M_multi_species_v2",
+      "250M_multi_species_v2",
+      "500M_multi_species_v2",
+      "2B5_multi_species"
+    ]
+  },
+
+  "prediction": {
+    "max_positions": 32,
+    "top_k": 5
+  },
+
+  "sequences": {
+    "default": [
+      "ATTCCGAAATCGCTGACCGATCGTACGAAA",
+      "ATTTCTCTCTCTCTCTGAGATCGATCGATCGATATCTCTCGAGCTAGC"
+    ]
+  },
+
+  "analysis": {
+    "calculate_accuracy": true,
+    "calculate_perplexity": true,
+    "per_sequence_metrics": true,
+    "position_level_analysis": true
+  },
+
+  "output": {
+    "format": "csv",
+    "include_probabilities": true,
+    "include_rankings": true,
+    "include_correctness": true,
+    "csv_columns": [
+      "sequence_id", "sequence", "position", "actual_token",
+      "predicted_token_1", "probability_1",
+      "predicted_token_2", "probability_2",
+      "predicted_token_3", "probability_3",
+      "predicted_token_4", "probability_4",
+      "predicted_token_5", "probability_5",
+      "is_correct"
+    ]
+  },
+
+  "performance": {
+    "batch_size": "auto",
+    "device": "auto"
+  }
+}

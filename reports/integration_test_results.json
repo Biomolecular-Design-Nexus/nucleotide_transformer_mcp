@@ -1,0 +1,66 @@
+{
+  "test_date": "2025-12-24T03:55:27.215200",
+  "server_path": "/home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/nucleotide_transformer_mcp/src/server.py",
+  "tests": {
+    "server_startup": {
+      "status": "passed",
+      "details": {
+        "output": "OK",
+        "import_time": "< 30s"
+      },
+      "timestamp": "2025-12-24T03:55:28.222909"
+    },
+    "tool_count": {
+      "status": "passed",
+      "details": {
+        "found": 14,
+        "expected": 14
+      },
+      "timestamp": "2025-12-24T03:55:28.228015"
+    },
+    "claude_registration": {
+      "status": "passed",
+      "details": {
+        "status": "connected",
+        "output": "Checking MCP server health...\n\nlinearfold_mcp: python /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/linearfold_mcp/src/linearfold_mcp.py - \u2717 Failed to connect\nevo2: /home/xux/miniforge3/envs/nucleic-mcp/bin/python /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/evo2_mcp/src/server.py - \u2713 Connected\nDNABERT: /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/dnabert_mcp/env/bin/python /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/dnabert_mcp/src/server.py - \u2713 Connected\nDNABERT_2: /home/xux/miniforge3/envs/nucleic-mcp/bin/python /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/dnabert2_mcp/src/server.py - \u2713 Connected\nnucleotide-transformer: /home/xux/miniforge3/envs/nucleic-mcp/bin/python /home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/nucleotide_transformer_mcp/src/server.py - \u2713 Connected\n"
+      },
+      "timestamp": "2025-12-24T03:55:33.326268"
+    },
+    "example_data": {
+      "status": "passed",
+      "details": {
+        "files_checked": 4,
+        "all_present": true
+      },
+      "timestamp": "2025-12-24T03:55:33.326571"
+    },
+    "dependencies": {
+      "status": "passed",
+      "details": {
+        "packages": [
+          "fastmcp",
+          "loguru"
+        ],
+        "all_imported": true
+      },
+      "timestamp": "2025-12-24T03:55:34.350445"
+    },
+    "job_directory": {
+      "status": "passed",
+      "details": {
+        "path": "/home/xux/Desktop/NucleicMCP/NucleicMCP/tool-mcps/nucleotide_transformer_mcp/jobs",
+        "writable": true,
+        "exists": true
+      },
+      "timestamp": "2025-12-24T03:55:34.351138"
+    }
+  },
+  "issues": [],
+  "summary": {
+    "total_tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "pass_rate": "100.0%",
+    "ready_for_manual_testing": true
+  }
+}

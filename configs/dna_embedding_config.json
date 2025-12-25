@@ -1,0 +1,39 @@
+{
+  "_description": "Configuration for DNA embedding extraction",
+  "_source": "Extracted from examples/use_case_1_dna_embedding.py",
+  "_script": "scripts/dna_embedding.py",
+
+  "model": {
+    "name": "50M_multi_species_v2",
+    "alternatives": [
+      "100M_multi_species_v2",
+      "250M_multi_species_v2",
+      "500M_multi_species_v2",
+      "2B5_multi_species"
+    ]
+  },
+
+  "embedding": {
+    "layer": 12,
+    "max_positions": 32
+  },
+
+  "sequences": {
+    "default": [
+      "ATTCCGAAATCGCTGACCGATCGTACGAAA",
+      "ATTTCTCTCTCTCTCTGAGATCGATCGATCGATATCTCTCGAGCTAGC"
+    ]
+  },
+
+  "output": {
+    "format": "npz",
+    "include_token_embeddings": true,
+    "include_mean_embeddings": true,
+    "include_metadata": true
+  },
+
+  "performance": {
+    "batch_size": "auto",
+    "device": "auto"
+  }
+}

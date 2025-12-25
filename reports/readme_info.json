@@ -1,0 +1,210 @@
+{
+  "project_name": "nucleotide-transformer",
+  "description": "DNA sequence analysis using Nucleotide Transformer deep learning models via Model Context Protocol (MCP)",
+  "tools": [
+    {
+      "name": "extract_dna_embeddings",
+      "type": "sync",
+      "description": "Extract DNA sequence embeddings",
+      "max_input": "~1000 sequences",
+      "example_prompt": "Use extract_dna_embeddings with sequences [\"ATTCCGAAATCGCTGACCGATCGTACGAAA\"] and save to embeddings.npz"
+    },
+    {
+      "name": "extract_dna_embeddings_v2",
+      "type": "sync",
+      "description": "Enhanced embeddings with shared library",
+      "max_input": "~1000 sequences",
+      "example_prompt": "Use extract_dna_embeddings_v2 with sequences [\"ATTCCGAAATCGCTGACCGATCGTACGAAA\"] and save to embeddings_v2.npz"
+    },
+    {
+      "name": "visualize_attention_patterns",
+      "type": "sync",
+      "description": "Create attention heatmaps",
+      "max_input": "~50 sequences",
+      "example_prompt": "Create attention visualization for sequence \"ATTCCGAAATCGCTGACCGATCGTACGAAA\" and save to attention.png"
+    },
+    {
+      "name": "predict_nucleotide_probabilities",
+      "type": "sync",
+      "description": "Predict nucleotide probabilities",
+      "max_input": "~100 sequences",
+      "example_prompt": "Predict nucleotide probabilities for sequences [\"ATTCCGAAATCGCTGACCGATCGTACGAAA\"] with top_k 5"
+    },
+    {
+      "name": "submit_dna_embeddings",
+      "type": "submit",
+      "description": "Async DNA embeddings extraction",
+      "example_prompt": "Submit DNA embedding extraction for @examples/data/sample_sequences.txt with job_name \"sample_analysis\""
+    },
+    {
+      "name": "submit_dna_embeddings_v2",
+      "type": "submit",
+      "description": "Async enhanced embeddings",
+      "example_prompt": "Submit enhanced DNA embeddings for @examples/data/sample_sequences.txt with job_name \"enhanced_analysis\""
+    },
+    {
+      "name": "submit_attention_visualization",
+      "type": "submit",
+      "description": "Async attention visualization",
+      "example_prompt": "Submit attention visualization for @examples/data/sample_sequences.txt with job_name \"attention_analysis\""
+    },
+    {
+      "name": "submit_nucleotide_prediction",
+      "type": "submit",
+      "description": "Async nucleotide prediction",
+      "example_prompt": "Submit nucleotide prediction for @examples/data/sample_sequences.txt with job_name \"prediction_analysis\""
+    },
+    {
+      "name": "submit_batch_dna_analysis",
+      "type": "submit",
+      "description": "Batch processing multiple files",
+      "example_prompt": "Submit batch DNA analysis for files [@examples/data/sample_sequences.txt] with analysis_type \"embeddings\""
+    },
+    {
+      "name": "get_job_status",
+      "type": "job_management",
+      "description": "Check job progress and status"
+    },
+    {
+      "name": "get_job_result",
+      "type": "job_management",
+      "description": "Get results when completed"
+    },
+    {
+      "name": "get_job_log",
+      "type": "job_management",
+      "description": "View execution logs"
+    },
+    {
+      "name": "cancel_job",
+      "type": "job_management",
+      "description": "Cancel running job"
+    },
+    {
+      "name": "list_jobs",
+      "type": "job_management",
+      "description": "List all jobs"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "dna_embedding.py",
+      "description": "Extract DNA sequence embeddings",
+      "example_command": "python scripts/dna_embedding.py --input examples/data/sample_sequences.txt --output results/embeddings.npz"
+    },
+    {
+      "name": "dna_embedding_v2.py",
+      "description": "Enhanced embeddings with shared library",
+      "example_command": "python scripts/dna_embedding_v2.py --input examples/data/sample_sequences.txt --output results/embeddings_v2.npz"
+    },
+    {
+      "name": "attention_visualization.py",
+      "description": "Visualize attention maps",
+      "example_command": "python scripts/attention_visualization.py --input examples/data/sample_sequences.txt --output results/attention.png"
+    },
+    {
+      "name": "nucleotide_prediction.py",
+      "description": "Predict nucleotide probabilities",
+      "example_command": "python scripts/nucleotide_prediction.py --input examples/data/sample_sequences.txt --output results/predictions.csv"
+    }
+  ],
+  "demo_data": [
+    {
+      "file": "sample_sequences.txt",
+      "description": "Diverse DNA sequences covering various genomic contexts",
+      "used_by": ["all tools"],
+      "sequences": 6,
+      "location": "examples/data/sample_sequences.txt"
+    }
+  ],
+  "configs": [
+    {
+      "file": "dna_embedding_config.json",
+      "description": "DNA embedding extraction settings",
+      "parameters": ["model", "layer", "max_positions", "output format"]
+    },
+    {
+      "file": "attention_visualization_config.json",
+      "description": "Attention visualization settings",
+      "parameters": ["model", "layer", "head", "visualization options"]
+    },
+    {
+      "file": "nucleotide_prediction_config.json",
+      "description": "Nucleotide prediction settings",
+      "parameters": ["model", "top_k", "analysis options"]
+    },
+    {
+      "file": "default_config.json",
+      "description": "Base configuration with available models",
+      "parameters": ["common settings", "model list"]
+    }
+  ],
+  "models": [
+    {
+      "name": "50M_multi_species_v2",
+      "size": "50M params",
+      "description": "Default, fastest, good for testing",
+      "speed": "⚡⚡⚡",
+      "accuracy": "⭐⭐⭐",
+      "memory": "~1GB"
+    },
+    {
+      "name": "100M_multi_species_v2",
+      "size": "100M params",
+      "description": "Balanced performance and accuracy",
+      "speed": "⚡⚡",
+      "accuracy": "⭐⭐⭐⭐",
+      "memory": "~2GB"
+    },
+    {
+      "name": "250M_multi_species_v2",
+      "size": "250M params",
+      "description": "Higher accuracy for research use",
+      "speed": "⚡",
+      "accuracy": "⭐⭐⭐⭐⭐",
+      "memory": "~4GB"
+    },
+    {
+      "name": "500M_multi_species_v2",
+      "size": "500M params",
+      "description": "High performance for production",
+      "speed": "⚡",
+      "accuracy": "⭐⭐⭐⭐⭐",
+      "memory": "~8GB"
+    },
+    {
+      "name": "2B5_multi_species",
+      "size": "2.5B params",
+      "description": "Largest, most accurate, research-grade",
+      "speed": "⏳",
+      "accuracy": "⭐⭐⭐⭐⭐⭐",
+      "memory": "~16GB"
+    }
+  ],
+  "validation": {
+    "all_file_paths_verified": true,
+    "scripts_exist": true,
+    "configs_exist": true,
+    "demo_data_exists": true,
+    "environment_exists": true,
+    "server_exists": true,
+    "script_help_tested": true,
+    "total_tools": 14,
+    "readme_sections_complete": [
+      "Overview",
+      "Installation",
+      "Local Usage",
+      "MCP Server Installation",
+      "Using with Claude Code",
+      "Using with Gemini CLI",
+      "Available Tools",
+      "Examples",
+      "Demo Data",
+      "Configuration Files",
+      "Available Models",
+      "Troubleshooting",
+      "Development",
+      "Performance Notes"
+    ]
+  }
+}

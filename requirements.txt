@@ -1,0 +1,15 @@
+# Core MCP server dependencies
+fastmcp>=2.14.1
+loguru
+
+# Scientific computing dependencies
+numpy
+jax
+dm-haiku
+
+# Nucleotide Transformer dependencies
+nucleotide-transformer
+
+# Additional dependencies that might be needed
+transformers
+matplotlib  # for visualization

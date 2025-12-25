@@ -1,0 +1,8 @@
+{
+  "setup_commands": [
+    "(command -v mamba >/dev/null 2>&1 && mamba create -p ./env python=3.10 pip -y) || (command -v conda >/dev/null 2>&1 && conda create -p ./env python=3.10 pip -y) || (echo \"Warning: Neither mamba nor conda found, creating venv instead\" && python3 -m venv ./env)",
+    "./env/bin/pip install fastmcp loguru click pandas numpy tqdm",
+    "./env/bin/pip install \"jax>=0.3.25\" \"jaxlib>=0.3.25\" \"dm-haiku>=0.0.9\" \"transformers>=4.52.4\" \"torch>=2.7.1\" \"einops>=0.8.1\" \"matplotlib>=3.5.0\" \"seaborn>=0.11.0\" \"pyfaidx>=0.7.0\"",
+    "cd repo/nucleotide-transformer && ../../env/bin/pip install -e . && cd ../.."
+  ]
+}

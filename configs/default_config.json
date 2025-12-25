@@ -1,0 +1,61 @@
+{
+  "_description": "Default configuration shared across all scripts",
+  "_purpose": "Base configuration that can be extended by specific use cases",
+
+  "model": {
+    "default_name": "50M_multi_species_v2",
+    "available": [
+      "500M_human_ref",
+      "500M_1000G",
+      "2B5_1000G",
+      "2B5_multi_species",
+      "50M_multi_species_v2",
+      "100M_multi_species_v2",
+      "250M_multi_species_v2",
+      "500M_multi_species_v2",
+      "1B_agro_nt"
+    ],
+    "recommended": {
+      "small": "50M_multi_species_v2",
+      "medium": "100M_multi_species_v2",
+      "large": "250M_multi_species_v2",
+      "xl": "500M_multi_species_v2"
+    }
+  },
+
+  "sequences": {
+    "max_positions": 32,
+    "default_test": [
+      "ATTCCGAAATCGCTGACCGATCGTACGAAA",
+      "ATTTCTCTCTCTCTCTGAGATCGATCGATCGATATCTCTCGAGCTAGC"
+    ],
+    "validation_patterns": [
+      "^[ATCG]+$"
+    ]
+  },
+
+  "paths": {
+    "data_dir": "examples/data",
+    "output_dir": "results",
+    "config_dir": "configs"
+  },
+
+  "output": {
+    "create_directories": true,
+    "overwrite_existing": true,
+    "include_metadata": true,
+    "timestamp_outputs": false
+  },
+
+  "performance": {
+    "default_device": "auto",
+    "fallback_to_cpu": true,
+    "batch_processing": true
+  },
+
+  "logging": {
+    "level": "INFO",
+    "include_timing": true,
+    "show_progress": true
+  }
+}
